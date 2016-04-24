@@ -1,0 +1,2 @@
+.overlay{position: fixed;bottom: 0;left: 0; width: 100%;height: 100%;background: #003751; opacity: 0.2;z-index: 999; }
+.loading{ position: fixed;left: 40%;top: 45%;height: 75px;width: 75px;background: url('../images/ajax-loader.gif') no-repeat center center;z-index: 1000;}

@@ -1,0 +1,70 @@
+ul.dashboard li.icon-dash-contact a,
+ul.dashboard li.icon-dash-group a,
+ul.dashboard li.icon-dash-share a,
+ul.dashboard li.icon-dash-setting a,
+ul.dashboard li.icon-dash-share-contact a,
+ul.dashboard li.icon-dash-search a,
+
+
+
+    /* Dashboard Icons */
+ul.dashboard{display:block; padding:0; margin:0;}
+ul.dashboard li{text-align:center; list-style:none; text-align:center; border:1px solid #c6eff3; background:rgba(255, 255, 255, 0.7);}
+ul.dashboard li:hover{background-color:rgba(79, 239, 252, 0.1)}
+ul.dashboard li.icon-dash-contact{ float:left; width:50%; border-bottom:none; border-radius: 15px 0 0 0;}
+ul.dashboard li.icon-dash-search{float:left; width:49%; border-left:none;border-bottom:none; border-radius: 0 15px 0 0; }
+ul.dashboard li.icon-dash-group{ clear:both; float:left; width:50%;}
+/*ul.dashboard li.icon-dash-share-contact{clear:both; float:left; width:50%; }*/
+ul.dashboard li.icon-dash-share{ float:left; width:49%; border-left:none;}
+/*ul.dashboard li.icon-dash-setting{ clear:both; float:left; width:99.2%; border-top:none; border-radius: 0 0 15px 15px;}*/
+ul.dashboard li.icon-dash-setting{float:left; width:50%; border-top:none; border-radius: 0 0 0 15px;}
+ul.dashboard li.icon-dash-panic{ float:left; width:49%; border-left:none; border-top:none; border-radius: 0 0 15px 0; }
+
+
+ul.dashboard li.contactWrap{ float:left; width:50%; border-bottom:none; border-radius: 15px 0 0 0; padding: 20px 0;}
+ul.dashboard li.searchWrap{float:left; width:49%; border-left:none;border-bottom:none; border-radius: 0 15px 0 0;padding:20px 0; }
+ul.dashboard li.groupWrap{ clear:both; float:left; width:50%; padding:20px 0;}
+/*ul.dashboard li.icon-dash-share-contact{clear:both; float:left; width:50%; }*/
+ul.dashboard li.shareWrap{ float:left; width:49%; border-left:none; padding:20px 0;}
+/*ul.dashboard li.settingWrap{ clear:both; float:left; width:99.2%; border-top:none; border-radius: 0 0 15px 15px; padding:20px 0;}*/
+ul.dashboard li.settingWrap{ float:left; width:50%; border-top:none; border-radius: 0 0 0 15px; padding:20px 0;}
+ul.dashboard li.panicWrap{ float:left; width:49%; border-left:none;border-top:none; border-radius: 0 0 15px 0;padding:20px 0;}
+
+
+ul.dashboard li.icon-dash-contact a{ display:block; height:185px; width:140px; margin:0 auto; background-position:30px 35px;}
+ul.dashboard li.icon-dash-share-contact a{ display:block; height:185px; width:140px; margin:0 auto; background-position:30px -1028px;}
+ul.dashboard li.icon-dash-search a{ display:block; height:185px; width:140px; margin:0 auto; background-position:30px -1221px;}
+ul.dashboard li.icon-dash-group a{display:block; height:185px; width:140px; margin:0 auto; background-position:30px -140px;}
+ul.dashboard li.icon-dash-share a{display:block; height:185px; width:140px; margin:0 auto; background-position:30px -310px;}
+/*ul.dashboard li.icon-dash-setting a{display:block; height:185px; width:140px; margin:0 auto; background-position:30px -480px;}*/
+ul.dashboard li.icon-dash-setting a{display:block; height:185px; width:140px; margin:0 auto; background-position:30px -310px;}
+ul.dashboard li.icon-dash-panic a{display:block; height:185px; width:140px; margin:0 auto; background-position:30px -310px;}
+
+
+@media only screen
+and (width : 320px)
+{
+    ul.dashboard li.icon-dash-contact {width: 49%;}
+    ul.dashboard li.icon-dash-search{width: 49%;}
+    ul.dashboard li.icon-dash-group {width: 49%;}
+    ul.dashboard li.icon-dash-share {width: 49%;}
+    /*ul.dashboard li.icon-dash-setting{ width:98.7%;}*/
+    ul.dashboard li.icon-dash-setting{ width:49%;}
+    ul.dashboard li.icon-dash-panic{ width:49%;}
+
+    ul.dashboard li.contactWrap {width: 49%;}
+    ul.dashboard li.searchWrap{width: 49%;}
+    ul.dashboard li.groupWrap {width: 49%;}
+    ul.dashboard li.shareWrap {width: 49%;}
+    /*ul.dashboard li.settingWrap{ width:98.7%;}*/
+    ul.dashboard li.panicWrap{ width:49%;}
+    ul.dashboard li.settingWrap{ width:49%;}
+
+    #btnContactList >img { height:80px;}
+    #btnSearchList >img { height:80px;}
+    #btnGroupList >img { height:80px;}
+    #btnShareList >img { height:80px;}
+    #btnSettings >img { height:80px;}
+    #btnPanic >img { height:80px;}
+    #btnPanic1 >img { height:80px;}
+}
