@@ -38,6 +38,42 @@ globalVictimTypeValidator = $('#get-victim-form').validate({
     }
 });
 
+var globalOrgLawSelectionValidator;
+globalOrgLawSelectionValidator = $('.choice').validate({
+    rules: {
+        selectedVal: {required: true}
+    },
+    errorPlacement: function( error, element ) {
+        error.insertAfter( element.parent());
+    },
+    highlight: function (element) {
+        $(element).parent().addClass('error')
+    },
+    unhighlight: function (element) {
+        $(element).parent().removeClass('error')
+    }
+});
+
+
+var globalSendMessageValidator;
+globalSendMessageValidator = $('#get-info-form').validate({
+    rules: {
+        name: {required: true},
+        number : {required: true},
+        msgComplaint : {required: true},
+        orgLaw: {required: true}
+    },
+    errorPlacement: function( error, element ) {
+        error.insertAfter( element.parent());
+    },
+    highlight: function (element) {
+        $(element).parent().addClass('error')
+    },
+    unhighlight: function (element) {
+        $(element).parent().removeClass('error')
+    }
+});
+
 var app = {
     // Application Constructor
     initialize: function () {
@@ -83,7 +119,51 @@ var app = {
             window.location.hash = "#victimDistinction";
         });
 
+
         // Code by Ruby \
+
+        $('#btnNext').on("click", function(){
+            var msgForm=$("#get-info-form");
+            msgForm.validate();
+            if (!msgForm.valid()) {
+                globalSendMessageValidator.focusInvalid();
+                return; //Do not save anything, since the form is not valid.
+            }else{
+                var val=$('#orgLaw').val();
+                if (val=="orga"){
+                    $("#selectOrg").attr("hidden", false);
+                    window.location.hash="#org";
+                }else{
+                    $("#selectLawyer").attr("hidden", false);
+                    window.location.hash="#lawyers";
+                }
+            }
+        });
+
+        $("#btnNeedHelpOrg").on("click", function(){
+            var orgForm=$("#get-selected-org-form");
+            orgForm.validate();
+            if(!orgForm.valid()){
+                globalOrgLawSelectionValidator.focusInvalid();
+               return;
+            }else{
+                $("#selectOrg").attr("hidden", true);
+                getDetails("Organization");
+            }
+        });
+
+        $("#btnNeedHelpLawyer").on("click", function(){
+            var lawForm=$("#get-selected-lawyer-form");
+            lawForm.validate();
+            if(!lawForm.valid()){
+                globalOrgLawSelectionValidator.focusInvalid();
+               return;
+            }else{
+                $("#selectLawyer").attr("hidden", true);
+                getDetails("Lawyer");
+            }
+        });
+
         $("#Where").change(function () {
             if ($("#Where").val() == 2) {
 
@@ -106,7 +186,7 @@ var app = {
             }
         });
 
-        $('#submit').on("click", function () {
+        $('#findViolence').on("click", function () {
             var pform = $('#get-victim-form');
             pform.validate();
 
@@ -177,6 +257,23 @@ function resetForm(){
     $("#get-victim-form")[0].reset();
 }
 
+function getDetails(orgLaw){
+    var name=$("#name").val();
+    var phone=$("#number").val();
+    var msg=$("#msgComplaint").val();
+    if (orgLaw=="Organization"){
+        var organization=$("#selectedOrg").find(":selected").text();
+    }else{
+        var lawyer=$("#selectedLawyer").find(":selected").text();
+    }
+    //reset lai ettikai chod haii... '.done' garera garna mildaina hola cause #btnNext wala form done bhayepachi reset garyo ki yeha kei values audaina.. since #btnNext wala form and #btnNeedHelp wala forms are different forms.
+    $("#get-selected-org-form")[0].reset();
+    $("#get-selected-lawyer-form")[0].reset();
+    $("#get-info-form")[0].reset();
+    $("#emailContent").html("<h3>" + name +"---" + phone +" ----" + msg + "----" + organization+"---" + lawyer + "</h3>");
+    alert(name +"---" + phone +" ----" + msg + "----" + organization+"---" + lawyer);
+    window.location.hash="#homePage"; //directing back to home page--Nikita, yah chaii email plugin ma direct huncha hola
+}
 
 function showSpinner(){
    // $.mobile.loading("show");

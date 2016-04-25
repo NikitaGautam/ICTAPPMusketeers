@@ -83,5 +83,12 @@ a.ui-btn{font-weight:normal !important;}
     color: red;
 }
 
+.selection{
+    position: relative;
+    margin: 10px auto;
+    padding: 0.2px;
+    background-color:ghostwhite;
+}
+
 
 

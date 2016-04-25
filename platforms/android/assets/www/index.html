@@ -110,8 +110,16 @@
                     <input type="tel" name="number" id="number" data-theme="b" />
                     <label for="msgComplaint">Message:*</label>
                     <input type="text" id="msgComplaint" name="msgComplaint" data-theme="a" style="height: 50px" >
+                    <label>Organization / Lawyer*</label>
+                    <select required id="orgLaw" data-theme="b">
+                        <option value =""> Select </option>
+                        <option value ="orga"> Organization</option>
+                        <option value ="lawyer"> Lawyer</option>
+                    </select>
+
+                    <a href="#" class="ui-btn" name="submit" type="submit" id="btnNext" style="background-color: #009688">Next</a>
                 </form>
-                <a href="#" class="ui-btn" id="btnNext" style="background-color: #009688">Next</a>
+
             </div>
         </div>
         <div style="height: 150px;"></div>
@@ -198,7 +206,7 @@
                     <fieldset data-role="fieldcontain">
                         <label for= 'Who'> Who was the criminal? *</label>
                             <select required id="Who" name="Who"  data-theme="b">
-                                <option value=""> --Select-- </option>
+                                <option value=""> Select </option>
                                 <option value="1">Intimate partner </option>
                                 <option value="2">Family Member </option>
                                 <option value="3">Outsiders</option>
@@ -209,7 +217,7 @@
                     <fieldset data-role="fieldcontain">
                             <label for="Where"  name="Where"> Where was the crime done? * </label>
                             <select required id="Where" data-theme="b">
-                                <option value ="">--Select--</option>
+                                <option value =""> Select </option>
                                 <option value ="1"> Within the periphery of house</option>
                                 <option value ="2"> Outside house</option>
                             </select>
@@ -233,7 +241,7 @@
                     <fieldset data-role="fieldcontain">
                             <label for= 'Why'> Cause Behind Crime : *</label>
                             <select required id="Why" name="Why" required data-theme="b">
-                                <option value=""> --Select-- </option>
+                                <option value=""> Select </option>
                                 <option value="1">Dowry/children issue/ household issue </option>
                                 <option value="2">Sexual Desire of criminal</option>
                                 <option value="3">For no specific reason</option>
@@ -259,7 +267,7 @@
                     </fieldset>
 
                     <fieldset data-role="fieldcontain">
-                            <a href="#" class="ui-btn" name="submit" id="submit" style="background-color: #009688">Submit</a>
+                            <a href="#" class="ui-btn" name="submit" id="findViolence" style="background-color: #009688">Submit</a>
                     </fieldset>
                 </form>
             </div>
@@ -339,6 +347,19 @@
                         <button id="maiti_back" class="btnTest"  style="background-color: #009688">Back</button>
                     </div>
                 </div>
+                <br><br>
+                <div id="selectOrg" hidden="true" class="selection">
+                    <form id="get-selected-org-form" class="choice"><br>
+                            <label align="center"><b>Select Organization * </b></label>
+                            <select required id="selectedOrg" class="selectedVal" data-theme="b">
+                                <option value="">Select</option>
+                                <option value="saathi">Saathi</option>
+                                <option value="kopila">Kopila</option>
+                                <option value="maiti">Maiti Nepal</option>
+                            </select>
+                            <a href="#" class="ui-btn" name="submit" type="submit" id="btnNeedHelpOrg" style="background-color: #009688">Submit</a>
+                    </form>
+                </div>
             </div>
         </div>
         <div data-role="footer" style="text-align:center" name="ftrMain" data-position="fixed">
@@ -414,7 +435,20 @@
                     </div>
                 </div>
             </div>
+            <div id="selectLawyer" hidden="true" class="selection">
+                <form id="get-selected-lawyer-form" class="choice"><br>
+                    <label align="center"><b>Select Lawyer * </b></label>
+                    <select required id="selectedLawyer" class="selectedVal" data-theme="b">
+                        <option value="">Select</option>
+                        <option value="saathi">Ram Kumar Shrestha</option>
+                        <option value="kopila">Dr. Laxmi Prasad Mainali</option>
+                        <option value="maiti">Ashrusha Mainali</option>
+                    </select>
+                    <a href="#" class="ui-btn" name="submit" type="submit" id="btnNeedHelpLawyer" style="background-color: #009688">Submit</a>
+                </form>
+            </div>
         </div>
+
         <div data-role="footer" style="text-align:center" name="ftrMain" data-position="fixed">
             <a data-theme="b" style="float:left; margin:5px" class="homepage" href="#homePage"><i class="fa fa-home"></i></a>
             <a data-theme="b" style="float:right; margin:5px" href="#" class="back1"><i class="fa fa-reply"></i></a>
