@@ -45,6 +45,7 @@
         <link rel="stylesheet" href="css/datebox.css" />
         <link rel="stylesheet" href="css/customize.css" />
         <link rel="stylesheet" href="css/dashboardStyle.css"/>
+        <link rel="stylesheet" href="css/org_lawyer.css" />
     </head>
     <body>
 
@@ -59,8 +60,8 @@
         </div>
         <div data-role="content">
             <ul class="dashboard">
-                <li class="contactWrap"><a id="btnContactList" href="#" data-transition="pop" ><img src="images/domestic.png" alt="contacts"/> </a></li>
-                <li class="searchWrap"><a href="#"  id="btnSearchList" data-transition="pop"><img src="images/human.png" alt="search"/> </a></li>
+                <li class="contactWrap"><a id="btnContactList" href="#domesticViolencePage" data-transition="pop" ><img src="images/domestic.png" alt="contacts"/> </a></li>
+                <li class="searchWrap"><a href="#humanTraffickingPage"  id="btnSearchList" data-transition="pop"><img src="images/human.png" alt="search"/> </a></li>
                 <li class="groupWrap"><a id="btnGroupList" href="#" data-transition="pop"><img src="images/sexual.png" alt="groups"/> </a></li>
                 <li class="shareWrap"><a id="btnShareList" href="#" data-transition="pop"><img src="images/intimate.png" alt="share"/> </a></li>
                 <li class="settingWrap"><a href="#" id="btnSettings" data-transition="pop"><img src="images/honor.png" alt="settings"/> </a></li>
@@ -84,8 +85,8 @@
         <h3>MENU</h3>
         <ul>
             <li><a href="#homePage" class="togglemenu"><i class="fa fa-home"></i> Back to Home</a></li>
-            <li><a href="#orgInfoPage" id="orgInfoButton" class="togglemenu"><i class="fa fa-home"></i> Organizations</a></li>
-            <li><a href="#" id="lawyerInfoButton" class="togglemenu"><i class="fa fa-user"></i> Lawyers</a></li>
+            <li><a href="#org" id="orgInfoButton" class="togglemenu"><i class="fa fa-home"></i> Organizations</a></li>
+            <li><a href="#lawyers" id="lawyerInfoButton" class="togglemenu"><i class="fa fa-user"></i> Lawyers</a></li>
             <li><a href="#helpFormPage" id="needHelpButton" class="togglemenu"><b>?</b> Need Help</a></li>
             <li><a href="#" id="forumButton" class="togglemenu"><i class="fa fa-user"></i> <b>Forum</b></a></li>
         </ul>
@@ -121,7 +122,7 @@
     </div>
 
 
-    <div data-role="page" id="orgInfoPage" data-theme="a">
+    <div data-role="page" id="domesticViolencePage" data-theme="a">
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding="false" style="background-color: #009688">
             <a href="#" class="togglemenu" style="background-color: #009688; border: none"><img src="img/smico.png"></a>
             <h1><a class="hidemenu homepage" href="#homePage"><img src="img/logo.jpg"></a></h1>
@@ -129,7 +130,264 @@
         </div>
         <div data-role="content">
             <div data-theme="a" data-form="ui-body-a" class="ui-body ui-body-a ui-corner-all">
+                   This is domestic page
+            </div>
 
+        </div>
+        <div data-role="footer" style="text-align:center" name="ftrMain" data-position="fixed">
+            <a data-theme="b" style="float:left; margin:5px" class="homepage" href="#homePage"><i class="fa fa-home"></i></a>
+            <a data-theme="b" style="float:right; margin:5px" href="#" class="back1"><i class="fa fa-reply"></i></a>
+        </div>
+    </div>
+
+    <div data-role="page" id="humanTraffickingPage" data-theme="a">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding="false" style="background-color: #009688">
+            <a href="#" class="togglemenu" style="background-color: #009688; border: none"><img src="img/smico.png"></a>
+            <h1><a class="hidemenu homepage" href="#homePage"><img src="img/logo.jpg"></a></h1>
+            <a href="#" class="alertButton" style="background-color: #009688; border: none"><img src="img/alert1.png"></a>
+        </div>
+        <div data-role="content">
+            <div  data-theme="a" data-form="ui-body-a" class="ui-body ui-body-a ui-corner-all">
+                  This is human page
+            </div>
+
+        </div>
+        <div data-role="footer" style="text-align:center" name="ftrMain" data-position="fixed">
+            <a data-theme="b" style="float:left; margin:5px" class="homepage" href="#homePage"><i class="fa fa-home"></i></a>
+            <a data-theme="b" style="float:right; margin:5px" href="#" class="back1"><i class="fa fa-reply"></i></a>
+        </div>
+    </div>
+
+
+
+    <div data-role="page" id="victimDistinction" data-theme="b">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding="false" style="background-color: #009688">
+            <a href="#" class="togglemenu" style="background-color: #009688; border: none"><img src="img/smico.png"></a>
+            <h1><a class="hidemenu homepage" href="#homePage"><img src="img/logo.jpg"></a></h1>
+            <a href="#" class="alertButton" style="background-color: #009688; border: none"><img src="img/alert1.png"></a>
+        </div>
+        <div data-role="content">
+            <div data-theme="a" data-form="ui-body-a" class="ui-body ui-body-a ui-corner-all">
+               <h3>Analyze what type of victim are you?</h3>
+                <form id="get-victim-form">
+                    <fieldset data-role="fieldcontain">
+                        <label for= 'Who'> Who was the criminal? *</label>
+                            <select required id="Who" name="Who"  data-theme="b">
+                                <option value=""> --Select-- </option>
+                                <option value="1">Intimate partner </option>
+                                <option value="2">Family Member </option>
+                                <option value="3">Outsiders</option>
+                                <option value="4">Colleague</option>
+                            </select>
+                    </fieldset>
+
+                    <fieldset data-role="fieldcontain">
+                            <label for="Where"  name="Where"> Where was the crime done? * </label>
+                            <select required id="Where" data-theme="b">
+                                <option value ="">--Select--</option>
+                                <option value ="1"> Within the periphery of house</option>
+                                <option value ="2"> Outside house</option>
+                            </select>
+                    </fieldset>
+
+
+                    <div id="outside" style="display:none;">
+                        <br><label>Which story is similar to you? *</label>
+                        <fieldset data-role="controlgroup" data-theme="b">
+                                <input type="radio" name="outside" id="outside1" value="1">
+                                <label for="outside1">There was an agreement between me/my family and the person who took me</label>
+                                <input type="radio" name="outside" id="outside2" value="2">
+                                <label for="outside2"> I was kidnapped and sent with someone I did not know</label>
+                                <input type="radio" name="outside" id="outside3" value="3">
+                                <label for="outside3">I was taken far away from home</label>
+                                <input type="radio" name="outside" id="outside4" value="4">
+                                <label for="outside4">Not traded, no agreement; it happened forcefully, one day</label>
+                        </fieldset>
+                    </div>
+
+                    <fieldset data-role="fieldcontain">
+                            <label for= 'Why'> Cause Behind Crime : *</label>
+                            <select required id="Why" name="Why" required data-theme="b">
+                                <option value=""> --Select-- </option>
+                                <option value="1">Dowry/children issue/ household issue </option>
+                                <option value="2">Sexual Desire of criminal</option>
+                                <option value="3">For no specific reason</option>
+                                <option value="4">Anger/ Ego/ Attitude problem</option>
+                                <option value="5">Money Issue</option>
+                            </select>
+                    </fieldset>
+
+                    <label> How was the crime committed? *</label>
+                    <fieldset data-role="controlgroup" id="howViolence" data-theme="b">
+                            <input type="checkbox" name="how_violence"  id="how_violence" value="1" required>
+                             <label for="how_violence">  By coercing into sex</label>
+                            <input type="checkbox" name="how_violence1" id="how_violence1"  value="2" required>
+                            <label for="how_violence1"> By sharing sensual thoughts</label>
+                            <input type="checkbox" name="how_violence2" id="how_violence2" value="3" required>
+                           <label for="how_violence2">  By hitting, beating (Physical Attack)</label>
+                            <input type="checkbox" name="how_violence3" id="how_violence3" value="4" required>
+                          <label for="how_violence3">  By luring me towards better opportunities outside home</label>
+                            <input type="checkbox" name="how_violence4" id="how_violence4" value="5" required>
+                           <label for="how_violence4">  By threatening/giving mental trauma</label>
+                            <input type="checkbox" name="how_violence5" id="how_violence5" value="6" required>
+                           <label for="how_violence5">By making me unconscious</label>
+                    </fieldset>
+
+                    <fieldset data-role="fieldcontain">
+                            <a href="#" class="ui-btn" name="submit" id="submit" style="background-color: #009688">Submit</a>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div data-role="footer" style="text-align:center" name="ftrMain" data-position="fixed">
+            <a data-theme="b" style="float:left; margin:5px" class="homepage" href="#homePage"><i class="fa fa-home"></i></a>
+            <a data-theme="b" style="float:right; margin:5px" href="#" class="back1"><i class="fa fa-reply"></i></a>
+        </div>
+    </div>
+
+
+    <div data-role="page" id="org" data-theme="a">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding="false" style="background-color: #009688">
+            <a href="#" class="togglemenu" style="background-color: #009688; border: none"><img src="img/smico.png"></a>
+            <h1><a class="hidemenu homepage" href="#homePage"><img src="img/logo.jpg"></a></h1>
+            <a href="#" class="alertButton" style="background-color: #009688; border: none"><img src="img/alert1.png"></a>
+        </div>
+        <div data-role="content">
+            <div class="f1_container">
+                <div class="f1_card" id="saathi">
+                    <div class="face">
+                        <br>
+                        <img src="img/saathi.jpg" height="150px" width="300px">
+                        <h2>Saathi</h2>
+                        <button id="saathi_brief" class="btnTest"  style="background-color: #009688">Know More</button>
+                    </div>
+                    <div class="back face">
+                        <h2>Saathi</h2>
+                        <p>Saathi identified Violence Against Women (VAW) and Children (C) as an area requiring urgent attention and intervention and has been working on this issue since this time. It has been working for : 20 years. It provides support to women
+                            survivors/victims through residential facility (shelter)and empowerment program.</p>
+                        <p> Address:Dhobighat, Patan <br>
+                            Phone: 977- 01-5537103, 977-01-5537104<br>
+                            Email: saathi.regional@gmail.com</p>
+                        <button id="saathi_back" class="btnTest"  style="background-color: #009688">Back</button>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="f1_container">
+                <div class="f1_card" id="kopila">
+                    <div class="face">
+                        <br>
+                        <img src="img/kopila.jpg" height="150px" width="300px">
+                        <h2>Kopila</h2>
+                        <button id="kopila_brief" class="btnTest" style="background-color: #009688">Know More</button>
+                    </div>
+                    <div class="back face">
+                        <h2>Kopila</h2>
+                        <p>
+                            It's initial aim was to work for underprivileged childern and later extended to  women empowerment and psychological well being.
+                            Kopila conducts 6 months intensive psychological counselling courses. It has been working for 15 years.</p>
+                        <p> Address: PO Box 287 Bulaundi 6, Pokhara<br>
+                            Contact Number: +997 (0) 61 463486<br>
+                            Email: kopila2057@ntc.net.np</p>
+
+                        <button id="kopila_back" class="btnTest"  style="background-color: #009688">Back</button>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="f1_container">
+                <div class="f1_card" id="maiti">
+                    <div class="face">
+                        <br>
+                        <img src="img/maitinepal.jpg" height="150px" width="300px">
+                        <h2>Maiti Nepal</h2>
+                        <button id="maiti_brief" class="btnTest"  style="background-color: #009688">Know More</button>
+                    </div>
+                    <div class="back face">
+                        <h2>Maiti Nepal</h2>
+                        <p>It is famous for fighting against woman trafficking. It has saved
+                            more than 12,000 victims of trafficking, sexual abuse, forced prostitution since 1993 and is still working strong.</p>
+                        <p> Address: Pingalasthan, Kathmandu 44600 <br>
+                            Phone:01-4492904<br>
+                            Email: info@maitinepal.org</p>
+
+                        <button id="maiti_back" class="btnTest"  style="background-color: #009688">Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" style="text-align:center" name="ftrMain" data-position="fixed">
+            <a data-theme="b" style="float:left; margin:5px" class="homepage" href="#homePage"><i class="fa fa-home"></i></a>
+            <a data-theme="b" style="float:right; margin:5px" href="#" class="back1"><i class="fa fa-reply"></i></a>
+        </div>
+    </div>
+
+    <div data-role="page" id="lawyers" data-theme="a">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding="false" style="background-color: #009688">
+            <a href="#" class="togglemenu" style="background-color: #009688; border: none"><img src="img/smico.png"></a>
+            <h1><a class="hidemenu homepage" href="#homePage"><img src="img/logo.jpg"></a></h1>
+            <a href="#" class="alertButton" style="background-color: #009688; border: none"><img src="img/alert1.png"></a>
+        </div>
+        <div data-role="content">
+            <div class="f1_container">
+                <div class="f1_card" id="rk">
+                    <div class="face">
+                        <br>
+                        <div style="verticle-align:middle;">
+                            <img src="img/nopicture.jpg" height="150px" width="300px">
+                            <h2>Ram Kumar Shrestha</h2>
+                            <button id="rk_brief" class="btnTest"  style="background-color: #009688">Know More</button>
+                        </div>
+                    </div>
+                    <div class="back face">
+                        <h2>Ram Kumar Shrestha</h2>
+                        <p> Address: Putalisadak, Kathmandu Nepal <br>
+                            Phone Number: 9851052367 <br>
+                            Work Experience: 15 Years <br>
+                            Number of Cases solved: 12 cases </p>
+                        <button id="rk_back" class="btnTest"  style="background-color: #009688">Back</button>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="f1_container">
+                <div class="f1_card" id="lp">
+                    <div class="face">
+                        <br>
+                        <img src="img/nopicture.jpg" height="150px" width="300px">
+                        <h2>Dr. Laxmi Prasad Mainali</h2>
+                        <button id="lp_brief" class="btnTest"  style="background-color: #009688">Know More</button>
+                    </div>
+                    <div class="back face">
+                        <h2>Dr. Laxmi Prasad Mainali</h2>
+                        <p> Address: Kritipur <br>
+                            Phone Number: 9843598453 <br>
+                            Work Experience: 25 Years <br>
+                            Number of cases solved: 20 Cases</p>
+
+                        <button id="lp_back" class="btnTest"  style="background-color: #009688">Back</button>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="f1_container">
+                <div class="f1_card" id="am">
+                    <div class="face">
+                        <br>
+                        <img src="img/nopicture.jpg" height="150px" width="300px">
+                        <h2>Ashrusha Mainali</h2>
+                        <button id="am_brief" class="btnTest"  style="background-color: #009688">Know More</button>
+                    </div>
+                    <div class="back face" align="left">
+                        <h2>Ashrusha Mainali</h2>
+                        <p> Address: Jhapa <br>
+                            Phone Number: 9849337023 <br>
+                            Work Experience: 5 Year <br>
+                            Number of cases solved: 3 cases</p>
+
+                        <button id="am_back" class="btnTest"  style="background-color: #009688">Back</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div data-role="footer" style="text-align:center" name="ftrMain" data-position="fixed">
@@ -141,5 +399,146 @@
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script>
+        //    For organization and lawyer info page
+        $("#saathi_brief").on("click",function () {
+            $("#saathi").css({
+                "-webkit-transform": " rotateY(180deg)",
+                "-moz-transform": " rotateY(180deg)",
+                "-o-transform": " rotateY(180deg)",
+                "transform": " rotateY(180deg)",
+                "-webkit-box-shadow": " -5px 5px 5px #aaa",
+                "-moz-box-shadow": " -5px 5px 5px #aaa",
+                "box-shadow": " -5px 5px 5px #aaa"
+            });
+        });
+        $("#saathi_back").on("click",function () {
+            $("#saathi").css({
+                "-webkit-transform": "",
+                "-moz-transform": "",
+                "-o-transform": "",
+                "transform": "",
+                "-webkit-box-shadow": " ",
+                "-moz-box-shadow": " ",
+                "box-shadow": " "
+            });
+        });
+
+        $("#kopila_brief").on("click",function () {
+            $("#kopila").css({
+                "-webkit-transform": " rotateY(180deg)",
+                "-moz-transform": " rotateY(180deg)",
+                "-o-transform": " rotateY(180deg)",
+                "transform": " rotateY(180deg)",
+                "-webkit-box-shadow": " -5px 5px 5px #aaa",
+                "-moz-box-shadow": " -5px 5px 5px #aaa",
+                "box-shadow": " -5px 5px 5px #aaa"
+            });
+        });
+        $("#kopila_back").on("click",function () {
+            $("#kopila").css({
+                "-webkit-transform": "",
+                "-moz-transform": "",
+                "-o-transform": "",
+                "transform": "",
+                "-webkit-box-shadow": " ",
+                "-moz-box-shadow": " ",
+                "box-shadow": " "
+            });
+        });
+
+        $("#maiti_brief").on("click",function () {
+            $("#maiti").css({
+                "-webkit-transform": " rotateY(180deg)",
+                "-moz-transform": " rotateY(180deg)",
+                "-o-transform": " rotateY(180deg)",
+                "transform": " rotateY(180deg)",
+                "-webkit-box-shadow": " -5px 5px 5px #aaa",
+                "-moz-box-shadow": " -5px 5px 5px #aaa",
+                "box-shadow": " -5px 5px 5px #aaa"
+            });
+        });
+        $("#maiti_back").on("click",function () {
+            $("#maiti").css({
+                "-webkit-transform": "",
+                "-moz-transform": "",
+                "-o-transform": "",
+                "transform": "",
+                "-webkit-box-shadow": " ",
+                "-moz-box-shadow": " ",
+                "box-shadow": " "
+            });
+        });
+
+        $("#rk_brief").on("click",function () {
+            $("#rk").css({
+                "-webkit-transform": " rotateY(180deg)",
+                "-moz-transform": " rotateY(180deg)",
+                "-o-transform": " rotateY(180deg)",
+                "transform": " rotateY(180deg)",
+                "-webkit-box-shadow": " -5px 5px 5px #aaa",
+                "-moz-box-shadow": " -5px 5px 5px #aaa",
+                "box-shadow": " -5px 5px 5px #aaa"
+            });
+        });
+        $("#rk_back").on("click",function () {
+            $("#rk").css({
+                "-webkit-transform": "",
+                "-moz-transform": "",
+                "-o-transform": "",
+                "transform": "",
+                "-webkit-box-shadow": " ",
+                "-moz-box-shadow": " ",
+                "box-shadow": " "
+            });
+        });
+
+        $("#lp_brief").on("click",function () {
+            $("#lp").css({
+                "-webkit-transform": " rotateY(180deg)",
+                "-moz-transform": " rotateY(180deg)",
+                "-o-transform": " rotateY(180deg)",
+                "transform": " rotateY(180deg)",
+                "-webkit-box-shadow": " -5px 5px 5px #aaa",
+                "-moz-box-shadow": " -5px 5px 5px #aaa",
+                "box-shadow": " -5px 5px 5px #aaa"
+            });
+        });
+        $("#lp_back").on("click",function () {
+            $("#lp").css({
+                "-webkit-transform": "",
+                "-moz-transform": "",
+                "-o-transform": "",
+                "transform": "",
+                "-webkit-box-shadow": " ",
+                "-moz-box-shadow": " ",
+                "box-shadow": " "
+            });
+        });
+
+        $("#am_brief").on("click",function () {
+            $("#am").css({
+                "-webkit-transform": " rotateY(180deg)",
+                "-moz-transform": " rotateY(180deg)",
+                "-o-transform": " rotateY(180deg)",
+                "transform": " rotateY(180deg)",
+                "-webkit-box-shadow": " -5px 5px 5px #aaa",
+                "-moz-box-shadow": " -5px 5px 5px #aaa",
+                "box-shadow": " -5px 5px 5px #aaa"
+            });
+        });
+        $("#am_back").on("click",function () {
+            $("#am").css({
+                "-webkit-transform": "",
+                "-moz-transform": "",
+                "-o-transform": "",
+                "transform": "",
+                "-webkit-box-shadow": " ",
+                "-moz-box-shadow": " ",
+                "box-shadow": " "
+            });
+        });
+
+    </script>
     </body>
 </html>

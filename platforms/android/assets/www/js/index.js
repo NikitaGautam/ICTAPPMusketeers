@@ -18,16 +18,36 @@
  */
 
 
+var globalVictimTypeValidator;
+globalVictimTypeValidator = $('#get-victim-form').validate({
+    rules: {
+        Who: {required: true},
+        Where : {required: true},
+        outside : {required: true},
+        Why: {required: true},
+        howViolence:  {required: true}
+    },
+    errorPlacement: function( error, element ) {
+        error.insertAfter( element.parent());
+    },
+    highlight: function (element) {
+        $(element).parent().addClass('error')
+    },
+    unhighlight: function (element) {
+        $(element).parent().removeClass('error')
+    }
+});
+
 var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         this.bindEvents();
     },
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
+    bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.addEventListener("backbutton", this.onBackKeyDown, false);
     },
@@ -35,34 +55,42 @@ var app = {
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
+    onDeviceReady: function () {
         //db = window.openDatabase("RegistrationDB", "1.0", "Registration", 200000);
         $.mobile.defaultDialogTransition = "none";
         $.mobile.defaultPageTransition = "none";
 
-        $('.togglemenu').click(function(){
+        $('.togglemenu').click(function () {
             $('.slidemenu').toggle();
             $('.overlayMenu').toggle();
         });
-        $('.hidemenu, .overlayMenu').click(function(){
+        $('.hidemenu, .overlayMenu').click(function () {
             $('.slidemenu').hide();
             $('.overlayMenu').hide();
         });
 
-        $(".homepage").click(function(){
+        $(".homepage").click(function () {
+            resetForm();
+        });
+
+        $('.back1').on('click', function () {
+            navigator.app.backHistory();
             resetForm();
         });
 
 
+        $('#vButton').on("click", function () {
+            window.location.hash = "#victimDistinction";
+        });
 
         // Code by Ruby \
-        $("#Where").change(function (){
-            if($("#Where").val() == 2){
+        $("#Where").change(function () {
+            if ($("#Where").val() == 2) {
 
                 $("#outside").show();
                 $("input[type='radio']").attr('required', 'required');
             }
-            else{
+            else {
                 $("#outside").hide();
 
             }
@@ -70,39 +98,62 @@ var app = {
 
 
         var requiredCheckboxes = $('input:checkbox[required]');
-        requiredCheckboxes.change(function(){
-            if(requiredCheckboxes.is(':checked')) {
+        requiredCheckboxes.change(function () {
+            if (requiredCheckboxes.is(':checked')) {
                 requiredCheckboxes.removeAttr('required');
             } else {
                 requiredCheckboxes.attr('required', 'required');
             }
         });
 
-        $("#myForm").submit(function(){
-            var who=$("#Who").val();
-            var where=$("#Where").val();
-            var story=$("#outside input[type='radio']:checked").val();
-            var cause=$("#Why").val();
-            var how=$("input:checkbox:checked").map(function(){
-                return $(this).val();
-            }).get();
-            alert(who + "----" + where + " ----" + story + "----" + cause + "----" + how + how.indexOf(4));
-            var decision="";
-            if (who==1){
-                decision="Intimate Partner Violence";
-            }else if (who==2 && where==1 && cause!=2){
-                decision="Domestic Violence";
-            }else if (who!=1 && (where==1 || (where==2 && story==4)) && cause==2 && how.indexOf(4)==-1){
-                decision="Sexual Violence";
-            }else{
-                decision="Woman Trafficking";
+        $('#submit').on("click", function () {
+            var pform = $('#get-victim-form');
+            pform.validate();
+
+            if (!pform.valid()) {
+                globalVictimTypeValidator.focusInvalid();
+                return; //Do not save anything, since the form is not valid.
             }
-            alert (decision);
+            else {
+                var who = $("#Who").val();
+                var where = $("#Where").val();
+                var story = $("#outside input[type='radio']:checked").val();
+                var cause = $("#Why").val();
+                var how = $("input:checkbox:checked").map(function () {
+                    return $(this).val();
+                }).get();
+                //alert(who + "----" + where + " ----" + story + "----" + cause + "----" + how + how.indexOf(4));
+                //resetForm();
+                var decision = "";
+                if (who == 1) {
+                    decision = "Intimate Partner Violence";
+                    //alert (decision);
+                } else if (who == 2 && where == 1 && cause != 2) {
+                    decision = "Domestic Violence";
+                    //alert (decision);
+                    window.location.hash = "#domesticViolencePage";
+
+                } else if (who != 1 && (where == 1 || (where == 2 && story == 4)) && cause == 2 && how.indexOf(4) == -1) {
+                    decision = "Sexual Violence";
+                    //alert (decision);
+                } else {
+                    decision = "Woman Trafficking";
+                    //alert (decision);
+                    window.location.hash = "#humanTraffickingPage";
+                }
+                //alert (decision);
+            }
+
+
+        }).done(function () {
+            resetForm();
         });
+
+
 
     },
     // Update DOM on a Received Event
-    onBackKeyDown:function() {
+    onBackKeyDown: function () {
         var hashId = window.location.hash;
         if (hashId == null || hashId == "" || hashId == "#homeScreen" || hashId == "#login") {
             // Define the Dialog and its properties.
@@ -111,22 +162,20 @@ var app = {
 //            }
             navigator.notification.confirm(
                 'Do you want to exit application?',  // message
-                function(result){
-                    if(result == 1){
+                function (result) {
+                    if (result == 1) {
                         navigator.app.exitApp();
                     }
                 }
             );
-        }else{
+        } else {
             navigator.app.backHistory();
         }
     }
-
-};
+}
 
 function resetForm(){
-    $("#msg-form")[0].reset();
-    $("#get-quote-form")[0].reset();
+    $("#get-victim-form")[0].reset();
 }
 
 

@@ -79,20 +79,9 @@ a.ui-btn{font-weight:normal !important;}
     width: 100%;}
 
 /*Error Placement*/
-#get-quote-form .error{
+#get-victim-form .error{
     color: red;
 }
 
-#get-info-form .error {
-     color: red;
- }
-
-#msg-form .error {
-    color: red;
-}
-
-#get-info-formU .error{
-    color: red;
-}
 
 
