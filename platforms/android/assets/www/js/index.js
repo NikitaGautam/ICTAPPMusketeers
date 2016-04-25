@@ -144,7 +144,6 @@ var app = {
                 //alert (decision);
             }
 
-
         }).done(function () {
             resetForm();
         });
